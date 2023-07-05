@@ -1,2 +1,2 @@
 #!/bin/bash
-ls -m -a -p -d -g --sort -n -X
+ls -m -a -p -d -g --sort -n -X /n
