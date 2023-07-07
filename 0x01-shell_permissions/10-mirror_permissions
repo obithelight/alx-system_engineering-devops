@@ -1,2 +1,2 @@
 #!/bin/bash
-chmod hello="$(stat -c '%n' olleh)"
+chmod hello="$(stat -c '%a' olleh)"
