@@ -9,7 +9,7 @@ cd "$(dirname "$0")" || return
 for item in *;
 do
 	if [ -e "$item" ];
-then
+	then
 		name=$(echo "$item" | cut -d'-' -f2-)
 		echo "$name"
 	fi

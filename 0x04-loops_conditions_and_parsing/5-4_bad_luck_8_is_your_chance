@@ -9,10 +9,10 @@ count=0
 while [ "$count" -lt 10 ];
 do
 	if [ "$count" -eq 3 ];
-then
+	then
 		echo "bad luck"
 	elif [ "$count" -eq 7 ];
-then
+	then
 		echo "good luck"
 	else
 		echo "Best School"
