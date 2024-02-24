@@ -1,8 +1,7 @@
 # 0x05. Processes and signals
 - DevOps, Shell, Bash, Syscall, Scripting
 
-  ![pid_image](https://github.com/obithelight/alx-system_engineering-devops/assets/91734251/18e90770-55f5-4018-92cc-c5fc10cae92a)
-
+![pid_image](https://github.com/obithelight/alx-system_engineering-devops/assets/91734251/18e90770-55f5-4018-92cc-c5fc10cae92a)
 
 ## Learning Objectives
 
