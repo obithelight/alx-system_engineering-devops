@@ -1,5 +1,7 @@
-# 0x08. Networking basics #1
+# 0x08. Networking Basics #1
 - DevOps, Network, SysAdmin
+
+![home](https://github.com/obithelight/alx-system_engineering-devops/assets/91734251/c0914fdc-f5af-4dc2-9eb9-a4fed6aef8b9)
 
 ## Learning Objectives
 
