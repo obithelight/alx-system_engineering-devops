@@ -1,4 +1,4 @@
-# 0x07. Networking basics #0
+# 0x07. Networking Basics #0
 - DevOps, Network
 
 ![LAN](https://github.com/obithelight/alx-system_engineering-devops/assets/91734251/b1d3b19c-f33c-46a3-8a9e-10986c22de1c)
