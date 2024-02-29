@@ -1,6 +1,8 @@
 # 0x07. Networking basics #0
 - DevOps, Network
 
+![LAN](https://github.com/obithelight/alx-system_engineering-devops/assets/91734251/b1d3b19c-f33c-46a3-8a9e-10986c22de1c)
+
 ## Learning Objectives
 
 ### OSI Model
@@ -18,7 +20,7 @@
 
 ### What is the Internet?
 - What is an IP address?
-- What are the 2 types of IP address?
+- What are the 2 types of IP addresses?
 - What is localhost?
 - What is a subnet?
 - Why `IPv6` was created
