@@ -1,37 +1,12 @@
 #!/usr/bin/env bash
-# Configuring my Nginx server so that /redirect_me is redirected to another page.
+# Configuring my `Nginx` server so that `/redirect_me` is redirected to another page.
 
 # Install nginx
 sudo apt-get update
 sudo apt-get install -y nginx
 
-# Backup the original default server block configuration
-sudo cp /etc/nginx/sites-available/default /etc/nginx/sites-available/default.backup
+string_for_replacement="server_name _;\n\trewrite ^\/redirect_me https:\/\/www.airtel.com.ng permanent;"
+sudo sed -i "s/server_name _;/$string_for_replacement/" /etc/nginx/sites-enabled/default
 
-# Create a new server block configuration file for the redirection
-sudo tee /etc/nginx/sites-available/redirect_me <<EOF
-server {
-    listen 80 default_server;
-    listen [::]:80 default_server;
-    server_name _;
-
-    location /redirect_me {
-        return 301 https://www.airtel.com.ng;
-    }
-
-    # Additional server configuration can be added here
-}
-EOF
-
-# Enable the new server block by creating a symbolic link in sites-enabled
-sudo ln -s /etc/nginx/sites-available/redirect_me /etc/nginx/sites-enabled/
-
-# Remove the default configuration symlink from sites-enabled if present
-sudo rm -f /etc/nginx/sites-enabled/default
-
-# Test Nginx configuration
-sudo nginx -t
-
-# Reload Nginx to apply the changes
-sudo service nginx reload
-
+# Restart nginx
+service nginx restart
