@@ -30,4 +30,5 @@ echo "server {
 " > /etc/nginx/sites-available/default
 
 # Restart nginx
-nginx -s reload
+sudo service nginx stop
+sudo service nginx start
