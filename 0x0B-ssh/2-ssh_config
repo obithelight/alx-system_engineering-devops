@@ -52,5 +52,5 @@ Host *
     GSSAPIAuthentication yes
 
 Host 52.3.244.71
-#   IdentityFile ~/.ssh/school
+    IdentityFile ~/.ssh/school
     PasswordAuthentication no
