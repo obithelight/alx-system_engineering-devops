@@ -1,8 +1,12 @@
 #!/usr/bin/env bash
-# Installs Nginx with the following configurations:
-#    Listens on port 80.
-#    Returns a page containing "Hello World" when queried
-#    at the root with a curl GET request.
+# Installation of web servers using nginx
+
+# The requirements:
+# 	1. Install nginx on web-01 server.
+# 	2. Nginx should be listening on port 80.
+# 	3. Returns a page containing "Hello World!"
+#	   when queried at the root with a curl GET request.
+# 	4. You can’t use systemctl for restarting nginx.
 
 # Update package list
 sudo apt-get update
@@ -20,4 +24,4 @@ echo "Hello World!" | sudo tee /var/www/html/index.html >/dev/null
 sudo nginx -t
 
 # Restart nginx to apply the changes
-sudo service nginx reload
+sudo service nginx restart
