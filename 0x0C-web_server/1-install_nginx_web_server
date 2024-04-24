@@ -1,35 +1,20 @@
 #!/usr/bin/env bash
-# Installation of web servers using nginx
+# commands to install nginx on web server
 
-# The requirements:
-# 1. Install nginx on your web-01 server
-# 2. Nginx should be listening on port 80
-# 3. When querying Nginx at its root / with a GET request (requesting a page) using curl, it must return a page that contains the string Hello World!
-# 4. As an answer file, write a Bash script that configures a new Ubuntu machine to respect above requirements (this script will be run on the server itself)
-# 5. You can’t use systemctl for restarting nginx
+# update package list
+sudo apt-get update
 
-# Install nginx
-sudo apt-get -y update
+# install nginx
 sudo apt-get install -y nginx
 
-# Configuration
-mkdir /etc/nginx/html
+# allow HTTP traffic in firewall for nginx
+sudo ufw allow 'Nginx HTTP'
 
-# Create a sample page
-echo "Hello World!" > /etc/nginx/html/index.html
+# create a sample page
+echo "Hello World!" | sudo tee /var/www/html/index.html >/dev/null
 
-# Create server block files
-echo "server {
-        listen 80 default_server;
-        listen [::]:80 default_server;
+# test if nginx was successfully installed
+sudo nginx -t
 
-        root /etc/nginx/html;
-        index index.html index.htm index.nginx-debian.html;
-
-        server_name _;
-}
-" > /etc/nginx/sites-available/default
-
-# Restart nginx
-sudo service nginx stop
-sudo service nginx start
+# restart nginx to apply the changes
+sudo service nginx reload
