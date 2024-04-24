@@ -4,15 +4,20 @@
 #    Returns a page containing "Hello World" when queried
 #    at the root with a curl GET request.
 
+# Update package list
+sudo apt-get update
+
 # Install nginx
-sudo apt-get -y update
 sudo apt-get install -y nginx
 
-# configure nginx to listen on port 80
-ufw allow 'Nginx HTTP'
+# Allow HTTP traffic in firewall for Nginx
+sudo ufw allow 'Nginx HTTP'
 
-# Creating Sample Page
-echo "Hello World!" > /var/www/html/index.html
+# Create sample page
+echo "Hello World!" | sudo tee /var/www/html/index.html >/dev/null
 
-# Start Nginx
-service nginx restart
+# Test if nginx was successfully installed
+sudo nginx -t
+
+# Restart nginx to apply the changes
+sudo service nginx restart
