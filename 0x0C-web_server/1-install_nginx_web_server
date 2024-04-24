@@ -11,7 +11,7 @@ sudo apt-get install -y nginx
 sudo ufw allow 'Nginx HTTP'
 
 # create a sample page
-echo "Hello World!" > /var/www/html/index.html
+echo "Hello World!" > /etc/nginx/html/index.html
 
 # test if nginx was successfully installed
 sudo nginx -t
