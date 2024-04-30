@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
-# Customizing a 404 error page to display the string 'Ceci n'est pas une page.'
+# Configuring Nginx so that its HTTP response contains
+# a custom header (on web-01 and web-02) servers'
 
 # Requirements:
-
-#	Page returns an HTTP 404 error code.
-#	Page contains the string 'Ceci n'est pas une page'.
+#	The name of the custom HTTP header must be "X-Served-By"
+#	Value of the custom HTTP header must be the hostname of the Nginx server
 
 # Update packages before installing nginx
 sudo apt-get update
