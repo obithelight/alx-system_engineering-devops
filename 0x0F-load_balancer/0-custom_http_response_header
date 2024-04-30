@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+# Customizing a 404 error page to display the string 'Ceci n'est pas une page.'
+
+# Requirements:
+
+#	Page returns an HTTP 404 error code.
+#	Page contains the string 'Ceci n'est pas une page'.
+
+# Update packages and install nginx
+sudo apt-get update
+sudo apt-get install -y nginx
+
+# Creating Sample Page
+echo "Hello World!" | sudo tee /var/www/html/index.html >/dev/null
+
+# Add the following configuration to the existing server block
+string_for_replacement="server_name _;\n\trewrite ^\/redirect_me https:\/\/youtube.com\/@NathanielBasseyMain permanent;"
+sudo sed -i "s/server_name _;/$string_for_replacement/" /etc/nginx/sites-enabled/default
+
+# Creating 404 error page and redirect error 404
+echo "Ceci n'est pas une page" | sudo tee /var/www/html/404.html >/dev/null
+string_for_replacement="listen 80 default_server;\n\terror_page 404 \/404.html;\n\tlocation = \/404.html {\n\troot \/var\/www\/html;\n\t\tinternal;\n\t}"
+sudo sed -i "s/listen 80 default_server;/$string_for_replacement/" /etc/nginx/sites-enabled/default
+
+# code for http_response_header
+sudo sed -i '/^http {/a \\tadd_header X-Served-By $hostname;' /etc/nginx/nginx.conf
+
+# Restart Nginx
+sudo service nginx restart
