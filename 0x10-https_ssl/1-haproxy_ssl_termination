@@ -39,8 +39,8 @@ frontend http_front
         bind *:443 ssl crt /etc/haproxy/certs/www.obichukwu.tech.pem
         redirect scheme https if !{ ssl_fc }
         default_backend http_back
-        
+
 backend http_back
         balance roundrobin
-        server 135836-web-01 52.3.244.71:80 check
-        server 135836-web-02 35.175.104.146:80 check
+        server 278351-web-01 52.3.244.71:80 check
+        server 278351-web-02 35.175.104.146:80 check
