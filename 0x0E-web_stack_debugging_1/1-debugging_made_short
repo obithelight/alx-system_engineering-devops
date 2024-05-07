@@ -1,17 +1,6 @@
 #!/usr/bin/env bash
 # configure an Nginx server to listen on port 80
-
-# remove the default Nginx configuration file
 rm /etc/nginx/sites-enabled/default
-
-# configure Nginx to listen on port 80 for all actuve iPv IPs
 ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
-
-# test configurtion for errors
-sudo nginx -t
-
-# restart Nginx
 sudo service nginx restart
-
-# kill the process
 pkill nginx
