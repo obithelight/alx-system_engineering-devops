@@ -23,6 +23,6 @@ if __name__ == "__main__":
         ]
     }
 
-    # convert file to json
-    with open("{}.json".format(user_id), 'a', encoding="utf-8") as file:
+    # save file and convert to json
+    with open("{}.json".format(user_id), 'w', encoding="utf-8") as file:
         json.dump(user_tasks, file)
