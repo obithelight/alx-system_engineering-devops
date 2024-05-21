@@ -1,54 +1,21 @@
-'''
 #!/usr/bin/python3
-"""A Python Module"""
+"""Exports to-do list data for an employee to JSON format"""
+
 import json
 import requests
 import sys
 
 
-
 if __name__ == "__main__":
-    url = "https://jsonplaceholder.typicode.com"
-    user_id = int(sys.argv[1])
-    user_endpoint = "{}/users/{}".format(url, user_id)
-    username = requests.get(user_endpoint).json().get("username")
-    tasks_endpoint = "{}/todos".format(url)
-    tasks = requests.get(tasks_endpoint).json()
-    user_tasks = {
-        user_id: [
-            {
-                "task": task.get("title"),
-                "completed": task.get("completed"),
-                "username": username,
+    user_id = sys.argv[1]
+    url = "https://jsonplaceholder.typicode.com/"
+    user = requests.get("{}users/{}".format(url, user_id)).json()
+    tasks = requests.get("{}users/{}/todos".format(url, user_id)).json()
+    data_dict = {
+                user_id: [{"task": task.get("title"),
+                           "completed": task.get("completed"),
+                           "username": user.get("username")} for task in tasks]
             }
-            for task in tasks if task.get("userId") == user_id
-        ]
-    }
-
-    # save file and convert to json
-    with open("{}.json".format(user_id), 'w', encoding="utf-8") as file:
-        json.dump(user_tasks, file)
-'''
-
-#!/usr/bin/python3
-"""comment"""
-import json
-import requests
-import sys
-
-if __name__ == "__main__":
-    url = "https://jsonplaceholder.typicode.com"
-    user_id = int(sys.argv[1])
-    user_endpoint = "{}/users/{}".format(url, user_id)
-    username = requests.get(user_endpoint).json().get("username")
-    tasks_endpoint = "{}/todos".format(url)
-    tasks = requests.get(tasks_endpoint).json()
-    user_tasks = {user_id: [{"task": task.get("title"),
-                             "completed": task.get("completed"),
-                             "username": username}
-                             for task in tasks if task.get("userId") == user_id]
-                             }
-    
-    #save in json file
-    with open("{}.json".format(user_id), 'w', encoding="utf-8") as file:
-        json.dump(user_tasks, file)
+    # open a new JSON file in write mode
+    with open("{}.json".format(user_id), "w", newline="") as file:
+        json.dump(data_dict, file)
