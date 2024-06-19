@@ -1,3 +1,5 @@
+# This Puppet script ensures the /etc/default/nginx file contains the ULIMIT setting and restarts the Nginx service if the file changes.
+
 file { '/etc/default/nginx':
   ensure  => file,
   content => "ULIMIT='-n 4096'\n",
