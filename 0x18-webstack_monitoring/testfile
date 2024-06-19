@@ -2,7 +2,7 @@
 import requests
 
 
-# Set up the API endpoint and parameters
+# Set up the API endpoint and its parameters
 api_url = "https://api.datadoghq.com/api/v1/dashboard/"
 api_key = "3818e969cccf19b792e540ce6158fb85"
 api_app_key = "39c1b914d018dd9cad4bd1e2afa0ad3466eebe48"
