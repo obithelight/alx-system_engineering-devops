@@ -3,7 +3,9 @@
 
 # Postmortem Report: Apache2 Server Downtime on WebServer-01
 
-## Overview
+## Overview 
+![postmortem-wide](https://github.com/user-attachments/assets/0aa35a4b-0bed-4978-b192-36cebc97e31b)
+
 
 This repository contains the postmortem report for the Apache2 server downtime incident that occurred on WebServer-01 on 08/18/2024. The incident affected premium service users, leading to login errors and system outages. The report includes a detailed timeline, root cause analysis, resolution steps, and corrective measures to prevent future occurrences.
 
@@ -17,17 +19,13 @@ This repository contains the postmortem report for the Apache2 server downtime i
 
 ## Visual Representations
 
-The following images visually represent the web server monitoring and incident response system used during the incident:
+The following image visually represents the web server monitoring and incident response system used during the incident:
 
-### Image 1: Software engineer responding to a system error call
+
 ![postmortem1](https://github.com/user-attachments/assets/02ae995b-8a8a-4b2d-9b50-3b5473f22095)
 
 
-### Image 2: Web Server Monitoring and Incident Response 
-![postmortem-wide](https://github.com/user-attachments/assets/0aa35a4b-0bed-4978-b192-36cebc97e31b)
-
-
-These images illustrate the relationship between the monitored service (Apache2), the monitoring tool (Datadog), the on-call management system (PagerDuty), and the software engineer's response process.
+The images illustrate the relationship between the monitored service (Apache2), the monitoring tool (Datadog), the on-call management system (PagerDuty), and the software engineer's response process.
 
 ## Usage
 
